@@ -66,7 +66,9 @@ const options = {
   },
 };
 
-const url = "https://api.cian.ru/search-offers/v2/search-offers-desktop/";
+const cianUrl = 'https://api.cian.ru/search-offers/v2/search-offers-desktop/';
+const sberUrl = 'https://offers-service.domclick.ru/research/v3/offers/?address=1d1463ae-c80f-4d19-9331-a1b68a85b553&offset=0&limit=10&sort=qi&sort_dir=desc&deal_type=sale&category=living&offer_type=complex&rooms=2&rooms=3&sale_price__lte=7300000&ne=56.006507%2C38.141795&sw=55.393066%2C37.055521&time_on_foot__lte=15&area__gte=58&kitchen_area__gte=9&floor__gte=3&is_apartment=0';
+const yandexUrl = 'https://realty.yandex.ru/gate/react-page/get/?utm_source=main_stripe_big&metroTransport=ON_FOOT&timeToMetro=15&newFlat=YES&kitchenSpaceMin=9&floorMin=3&apartments=NO&balcony=ANY&priceMax=7300000&rgid=741964&type=SELL&category=APARTMENT&roomsTotal=2&roomsTotal=3&_pageType=search&_providers=seo&_providers=queryId&_providers=forms&_providers=filters&_providers=filtersParams&_providers=direct&_providers=mapsPromo&_providers=newbuildingPromo&_providers=refinements&_providers=search&_providers=react-search-data&_providers=searchHistoryParams&_providers=searchParams&_providers=searchPresets&_providers=serpDirectPicType&_providers=showSurveyBanner&_providers=seo-data-offers-count&_providers=related-newbuildings&_providers=breadcrumbs&_providers=ads&_providers=categoryTotalOffers&crc=ub0ccd6c9f0611b962145013d6ca56a21';
 
 async function cianData(url, options) {
   return fetch(url, {
@@ -104,7 +106,7 @@ async function cianData(url, options) {
 }
 
 async function print() {
-    const base = await cianData(url, options);
+    const base = await cianData(cianUrl, options);
 
   let tbody = document.querySelector(".data");
   let tr = "";
